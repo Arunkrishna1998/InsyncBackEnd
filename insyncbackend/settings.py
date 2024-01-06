@@ -103,11 +103,11 @@ ASGI_APPLICATION = 'insyncbackend.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'insyncdb',
+        'NAME': 'dbinsync',
         'USER': 'insyncuser',
-        'PASSWORD': 'insyncuser@1234',
+        'PASSWORD': 'insync123',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': ''
     }
 }
 
