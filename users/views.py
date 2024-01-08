@@ -60,8 +60,7 @@ class RegisterView(APIView):
 
 
 class RetrieveUserView(APIView):    
-    # permission_classes = [permissions.IsAuthenticated]
-
+    permission_classes = [permissions.IsAuthenticated]
     def get(self, request):
         user = request.user
         user = UserSerializer(user)
