@@ -59,12 +59,20 @@ class RegisterView(APIView):
         return Response(user, status=status.HTTP_201_CREATED)
 
 
+# class RetrieveUserView(APIView):    
+#     permission_classes = [permissions.IsAuthenticated]
+#     def get(self, request):
+#         user = request.user
+#         user = UserSerializer(user)
+#         return Response(user.data, status=status.HTTP_200_OK)
+    
 class RetrieveUserView(APIView):    
     permission_classes = [permissions.IsAuthenticated]
+    
     def get(self, request):
         user = request.user
-        user = UserSerializer(user)
-        return Response(user.data, status=status.HTTP_200_OK)
+        serialized_user = UserSerializer(user)
+        return Response(serialized_user.data, status=status.HTTP_200_OK)
     
 
 class UpdateUserView(APIView):
