@@ -63,9 +63,13 @@ class RegisterView(APIView):
 class RetrieveUserView(APIView):    
     permission_classes = [permissions.IsAuthenticated]
     def get(self, request):
-        user = request.user
-        user = UserSerializer(user)
-        return Response(user.data, status=status.HTTP_200_OK)
+        try:
+            user = request.user
+            user = UserSerializer(user)
+            return Response(user.data, status=status.HTTP_200_OK)
+        except:
+            return Response(user.data, status=status.HTTP_204_NO_CONTENT)
+
     
 
 class UpdateUserView(APIView):
