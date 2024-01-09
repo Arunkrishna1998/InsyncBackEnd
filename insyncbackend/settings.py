@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['arunkrishna.online','www.arunkrishna.online','localhost']#'13.49.44.20'
+ALLOWED_HOSTS = ['www.arunkrishna.online','arunkrishna.online','localhost']#'13.49.44.20'
 
 CSRF_TRUSTED_ORIGINS = ['https://www.arunkrishna.online']
 
