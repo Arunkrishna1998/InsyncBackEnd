@@ -195,6 +195,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "https://main.d2w5o4nwbgj2f2.amplifyapp.com",
+    # "http://localhost:8000",
 ]
 
 
