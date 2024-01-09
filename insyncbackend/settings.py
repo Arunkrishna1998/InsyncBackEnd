@@ -198,6 +198,8 @@ CORS_ALLOWED_ORIGINS = [
     # "http://localhost:8000",
 ]
 
+# CSRF_TRUSTED_ORIGINS = ['arunkrishna.online','www.arunkrishna.online','https://13.49.44.20','0.0.0.0']
+
 
 AUTH_USER_MODEL = 'users.User'
 

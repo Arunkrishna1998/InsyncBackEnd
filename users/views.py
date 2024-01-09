@@ -14,6 +14,7 @@ import jwt
 from django.conf import settings
 from drf_yasg import openapi
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.views import exception_handler
 from rest_framework.exceptions import AuthenticationFailed
 from django.contrib.auth.tokens import default_token_generator
@@ -66,15 +67,17 @@ class RegisterView(APIView):
 #         user = UserSerializer(user)
 #         return Response(user.data, status=status.HTTP_200_OK)
     
-class RetrieveUserView(APIView):    
-    # permission_classes = [permissions.IsAuthenticated]
+class RetrieveUserView(APIView):
+    authentication_classes = [JWTAuthentication]
     def get(self, request):
         try:
-            user = request.user
+            user = request.user  
+            print("USER : ", user)
             serialized_user = UserSerializer(user)
             return Response(serialized_user.data, status=status.HTTP_200_OK)
-        except:
-            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Exception as e:
+            print(e)  
+            return Response({'error': 'Invalid or expired token'}, status=status.HTTP_400_BAD_REQUEST)
     
 
 class UpdateUserView(APIView):
