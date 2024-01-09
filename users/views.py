@@ -60,32 +60,12 @@ class RegisterView(APIView):
         return Response(user, status=status.HTTP_201_CREATED)
 
 
-# class RetrieveUserView(APIView):    
-#     permission_classes = [permissions.IsAuthenticated]
-#     def get(self, request):
-#         user = request.user
-#         user = UserSerializer(user)
-#         return Response(user.data, status=status.HTTP_200_OK)
-    
-# class RetrieveUserView(APIView):
-#     authentication_classes = [JWTAuthentication]
-#     def get(self, request):
-#         try:
-#             print("RetrieveUserView - 1 ")
-#             user = request.user  
-#             print("USER RetrieveUserView : ", user)
-#             serialized_user = UserSerializer(user)
-#             print("RetrieveUserView - serialized_user : ", serialized_user)
-#             return Response(serialized_user.data, status=status.HTTP_200_OK)
-#         except Exception as e:
-#             print("ERROR RetrieveUserView : ")
-#             print(e)  
-#             return Response({'error': 'Invalid or expired token'}, status=status.HTTP_400_BAD_REQUEST)
-    
-class RetrieveUserView(APIView):
+class RetrieveUserView(APIView):    
+    permission_classes = [permissions.IsAuthenticated]
     def get(self, request):
-        user = request.user  
-        print("USER RetrieveUserView : ", user)
+        user = request.user
+        user = UserSerializer(user)
+        return Response(user.data, status=status.HTTP_200_OK)
     
 
 class UpdateUserView(APIView):
