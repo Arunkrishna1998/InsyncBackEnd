@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['arunkrishna.online','www.arunkrishna.online','localhost']#'13.49.44.20'
 
-CSRF_TRUSTED_ORIGINS = ['arunkrishna.online','www.arunkrishna.online','0.0.0.0',]
+CSRF_TRUSTED_ORIGINS = ['arunkrishna.online','www.arunkrishna.online',]
 
 SITE_ID=1
 # Application definition
